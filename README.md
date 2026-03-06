@@ -3,4 +3,4 @@ This website serves as the final project for our Operating Systems course, offer
 - Step-by-step video demonstrations of Windows installations.
 - Case Study Finals which cover system setup, user management, and security.
   
-View link: 
+View link: https://alwincroissant.github.io/OSWebsite/
