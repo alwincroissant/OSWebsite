@@ -306,3 +306,15 @@ footer {
     background: linear-gradient(135deg, #1F2937 0%, #111827 100%) !important;
     margin-top: 4rem;
 }
+
+/* Video embed styling */
+.ratio {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(79, 70, 229, 0.25);
+    border: 3px solid rgba(255, 255, 255, 0.8);
+}
+
+.ratio iframe {
+    border: none;
+}
