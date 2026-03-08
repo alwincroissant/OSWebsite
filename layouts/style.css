@@ -53,6 +53,7 @@ main.mx-auto {
 
 #header .container.mt-4 {
     margin-top: 0 !important;
+    padding-top: 0;
 }
 
 main.mx-auto {
@@ -96,15 +97,16 @@ header::after {
     box-shadow: 0 12px 34px rgba(0, 0, 0, 0.17);
     position: fixed;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: min(1120px, calc(100% - 1.25rem));
-    margin: 0 auto !important;
+    left: 0;
+    transform: none;
+    width: 100%;
+    margin: 0 !important;
+    border-radius: 0;
     z-index: 3000;
 }
 
 #header header {
-    padding-top: 7.2rem;
+    padding-top: 8.2rem;
 }
 
 .nav-link {
@@ -133,7 +135,8 @@ header::after {
     padding: 0.58rem;
     max-height: 360px;
     overflow-y: auto;
-    z-index: 3200;
+    position: absolute;
+    z-index: 5000;
 }
 
 .dropdown-item {
@@ -286,7 +289,7 @@ footer {
     }
 
     #header header {
-        padding-top: 6.4rem;
+        padding-top: 7.2rem;
     }
 }
 
@@ -309,12 +312,7 @@ footer {
         font-size: 0.96rem;
     }
 
-    .navbar {
-        width: calc(100% - 0.6rem);
-        border-radius: 12px;
-    }
-
     #header header {
-        padding-top: 5.7rem;
+        padding-top: 6.8rem;
     }
 }
