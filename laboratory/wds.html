@@ -10,14 +10,14 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/OSWebsite/layouts/style.css">
+    <link rel="stylesheet" href="/layouts/style.css">
 </head>
 
 <body>
     <div id="header"></div>
 
     <script>
-        fetch('/OSWebsite/layouts/header.html')
+        fetch('/layouts/header.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('header').innerHTML = data;
@@ -38,17 +38,15 @@
             </p>
         </div>
 
-        <div class="mt-4 mb-5 text-center">
-            <a href="https://www.youtube.com/playlist?list=PLN0M7olJoF6vyM2kszrpaCntE_obPbuMD" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-                <i class="bi bi-play-circle me-2"></i>Watch WDS Playlist
-            </a>
+        <div class="ratio ratio-16x9 mt-4 mb-5">
+            <iframe src="https://www.youtube.com/embed/videoseries?list=PLN0M7olJoF6vyM2kszrpaCntE_obPbuMD" title="WDS Playlist" allowfullscreen></iframe>
         </div>
     </main>
 
     <div id="footer"></div>
 
     <script>
-        fetch('/OSWebsite/layouts/footer.html')
+        fetch('/layouts/footer.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer').innerHTML = data;

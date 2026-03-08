@@ -2,98 +2,383 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ITOS220-T: Operating Systems</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/OSWebsite/layouts/style.css">
-    <style>
-        main {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(20px);
-            border-radius: 30px;
-            padding: 3rem 2rem;
-            box-shadow: 0 20px 60px rgba(79, 70, 229, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ITOS220-T: Operating Systems</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── Design tokens ─────────────────────────────── */
+    :root {
+      --ink:    #0d0d1a;
+      --paper:  #f5f3ee;
+      --accent: #e84a27;
+      --soft:   #eceae4;
+      --mid:    #6b6b7b;
+      --card-bg:#ffffff;
+    }
+
+    /* ── Reset / base ──────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      margin: 0;
+      /* subtle grain texture */
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: 'Syne', sans-serif;
+    }
+
+    /* ── Nav (header.html injects here) ───────────── */
+    /* sticky nav already handled inside header.html */
+
+    /* ── Hero ──────────────────────────────────────── */
+    .hero {
+      max-width: 1100px;
+      margin: 4rem auto 0;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      min-height: 420px;
+    }
+
+    .hero__label {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .hero__title {
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero__title em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--mid);
+    }
+
+    .hero__body {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--mid);
+      max-width: 44ch;
+    }
+
+    .hero__cta {
+      margin-top: 2rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--ink);
+      color: var(--paper);
+      text-decoration: none;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.75rem 1.6rem;
+      border-radius: 6px;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .hero__cta:hover {
+      background: var(--accent);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* decorative side panel */
+    .hero__visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero__ring {
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: var(--soft);
+      border: 2px solid var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      animation: spin-slow 30s linear infinite;
+    }
+
+    .hero__ring::before {
+      content: '';
+      position: absolute;
+      inset: 20px;
+      border-radius: 50%;
+      border: 1px dashed var(--mid);
+    }
+
+    @keyframes spin-slow {
+      to { transform: rotate(360deg); }
+    }
+
+    .hero__ring-center {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: spin-slow 30s linear infinite reverse;
+    }
+
+    .hero__ring-center i {
+      font-size: 3.5rem;
+      color: var(--paper);
+    }
+
+    /* orbit dots */
+    .orbit-dot {
+      position: absolute;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--card-bg);
+      border: 2px solid var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      animation: spin-slow 30s linear infinite reverse;
+    }
+
+    .orbit-dot:nth-child(2) { top: -8px;  left: 50%; transform: translateX(-50%); }
+    .orbit-dot:nth-child(3) { bottom: -8px; left: 50%; transform: translateX(-50%); }
+    .orbit-dot:nth-child(4) { left: -8px; top: 50%; transform: translateY(-50%); }
+    .orbit-dot:nth-child(5) { right: -8px; top: 50%; transform: translateY(-50%); }
+
+    /* ── Divider ───────────────────────────────────── */
+    .divider {
+      max-width: 1100px;
+      margin: 4rem auto 0;
+      padding: 0 2rem;
+      border: none;
+      border-top: 2px solid var(--ink);
+    }
+
+    /* ── Feature cards ─────────────────────────────── */
+    .features {
+      max-width: 1100px;
+      margin: 3rem auto 5rem;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .feat-card {
+      background: var(--card-bg);
+      border: 2px solid var(--ink);
+      border-radius: 12px;
+      padding: 2rem 1.75rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .feat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 6px 6px 0 var(--ink);
+    }
+
+    .feat-card__num {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 1rem;
+    }
+
+    .feat-card__icon {
+      font-size: 2.2rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .feat-card__title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+    }
+
+    .feat-card__body {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--mid);
+    }
+
+    /* accent stripe on hover */
+    .feat-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+
+    .feat-card:hover::after { transform: scaleX(1); }
+
+    /* ── Responsive ────────────────────────────────── */
+    @media (max-width: 860px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        margin-top: 3rem;
+      }
+      .hero__body { max-width: 100%; margin: 0 auto; }
+      .hero__visual { display: none; }
+      .features { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 580px) {
+      .features { grid-template-columns: 1fr; }
+    }
+
+    /* ── Fade-in on load ───────────────────────────── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
 </head>
 
 <body>
-    <div id="header"></div>
 
-    <script>
-        fetch('/OSWebsite/layouts/header.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header').innerHTML = data;
-            });
-    </script>
+  <!-- ── Header (injected, sticky, won't overlap) ── -->
+  <div id="header"></div>
 
-    <main class="mx-auto py-5" style="max-width: 900px;">
-        <div class="text-center mb-5">
-            <h2 class="display-6 fw-bold mb-4">OPERATING SYSTEMS</h2>
-            <p class="lead text-muted px-4" style="text-align: justify;">
-                An operating system (OS) is the core software that manages a computer's hardware and software resources,
-                enabling users to interact with the machine. It handles tasks like running applications, managing
-                memory, organizing files, controlling devices, and ensuring security. OS types include desktop systems
-                (Windows, macOS), mobile systems (Android, iOS), servers (Linux), and embedded systems. Without an OS,
-                computers couldn't function or run programs.
-            </p>
+  <!-- ── Hero ─────────────────────────────────────── -->
+  <section class="hero fade-up">
+    <div class="hero__content">
+      <p class="hero__label">ITOS220-T · Course Overview</p>
+      <h1 class="hero__title">Operating<br><em>Systems</em></h1>
+      <p class="hero__body">
+        An operating system is the core software that bridges hardware and user.
+        It manages CPU time, memory, storage, devices, and security — making every
+        application you run possible.
+      </p>
+      <a href="#features" class="hero__cta">
+        Explore topics <i class="bi bi-arrow-down"></i>
+      </a>
+    </div>
+
+    <div class="hero__visual" aria-hidden="true">
+      <div class="hero__ring">
+        <span class="orbit-dot"><i class="bi bi-cpu"></i></span>
+        <span class="orbit-dot"><i class="bi bi-memory"></i></span>
+        <span class="orbit-dot"><i class="bi bi-hdd"></i></span>
+        <span class="orbit-dot"><i class="bi bi-shield-check"></i></span>
+        <div class="hero__ring-center">
+          <i class="bi bi-hdd-stack-fill"></i>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="row mt-5 g-4">
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body text-center p-4">
-                        <i class="bi bi-cpu feature-icon"></i>
-                        <h5 class="card-title mt-3 fw-bold">Resource Management</h5>
-                        <p class="card-text text-muted" style="text-align: justify;">
-                            Efficiently allocates and manages hardware resources like CPU, memory, and storage for
-                            smooth system operation.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body text-center p-4">
-                        <i class="bi bi-person-workspace feature-icon"></i>
-                        <h5 class="card-title mt-3 fw-bold">User Interface</h5>
-                        <p class="card-text text-muted" style="text-align: justify;">
-                            Provides a graphical or command-based interface, allowing users to interact with the
-                            computer easily and efficiently.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body text-center p-4">
-                        <i class="bi bi-windows feature-icon"></i>
-                        <h5 class="card-title mt-3 fw-bold">Software Execution</h5>
-                        <p class="card-text text-muted" style="text-align: justify;">
-                            Enables applications to run by handling processes, multitasking, and ensuring compatibility
-                            between software and hardware.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
+  <hr class="divider">
 
-    <div id="footer"></div>
+  <!-- ── Feature cards ─────────────────────────────── -->
+  <section class="features" id="features">
+    <article class="feat-card fade-up" style="transition-delay:0.05s">
+      <p class="feat-card__num">01 &mdash; Core Function</p>
+      <i class="bi bi-cpu feat-card__icon"></i>
+      <h2 class="feat-card__title">Resource Management</h2>
+      <p class="feat-card__body">
+        Efficiently allocates and manages hardware resources — CPU time, RAM, and
+        storage — so every process gets what it needs without starvation or conflict.
+      </p>
+    </article>
 
-    <script>
-        fetch('/OSWebsite/layouts/footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer').innerHTML = data;
-            });
-    </script>
-    <!-- Bootstrap JS Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <article class="feat-card fade-up" style="transition-delay:0.15s">
+      <p class="feat-card__num">02 &mdash; Interaction Layer</p>
+      <i class="bi bi-person-workspace feat-card__icon"></i>
+      <h2 class="feat-card__title">User Interface</h2>
+      <p class="feat-card__body">
+        Provides a graphical or command-based interface, letting users interact with
+        the machine intuitively — from desktops and shells to touch-first mobile UIs.
+      </p>
+    </article>
+
+    <article class="feat-card fade-up" style="transition-delay:0.25s">
+      <p class="feat-card__num">03 &mdash; Runtime Engine</p>
+      <i class="bi bi-play-circle feat-card__icon"></i>
+      <h2 class="feat-card__title">Software Execution</h2>
+      <p class="feat-card__body">
+        Enables applications to run by scheduling processes, enabling multitasking,
+        and ensuring compatibility between software and underlying hardware.
+      </p>
+    </article>
+  </section>
+
+  <!-- ── Footer (injected) ─────────────────────────── -->
+  <div id="footer"></div>
+
+  <!-- ── Scripts ───────────────────────────────────── -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Load header & footer partials
+    fetch('/layouts/header.html')
+      .then(r => r.text())
+      .then(html => { document.getElementById('header').innerHTML = html; });
+
+    fetch('/layouts/footer.html')
+      .then(r => r.text())
+      .then(html => { document.getElementById('footer').innerHTML = html; });
+
+    // Scroll-triggered fade-ups
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
 </body>
 
 </html>

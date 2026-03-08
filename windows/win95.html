@@ -10,14 +10,14 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/OSWebsite/layouts/style.css">
+    <link rel="stylesheet" href="/layouts/style.css">
 </head>
 
 <body>
     <div id="header"></div>
 
     <script>
-        fetch('/OSWebsite/layouts/header.html')
+        fetch('/layouts/header.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('header').innerHTML = data;
@@ -47,7 +47,7 @@
     <div id="footer"></div>
 
     <script>
-        fetch('/OSWebsite/layouts/footer.html')
+        fetch('/layouts/footer.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer').innerHTML = data;

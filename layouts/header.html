@@ -15,7 +15,8 @@
   .os-nav {
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 5000;
+    isolation: isolate;
     background: var(--paper);
     border-bottom: 2px solid var(--ink);
     font-family: 'Syne', sans-serif;
@@ -61,6 +62,10 @@
     gap: 0.25rem;
   }
 
+  .os-nav__item {
+    position: relative;
+  }
+
   .os-nav__links a {
     display: block;
     padding: 0.35rem 0.85rem;
@@ -72,6 +77,62 @@
     text-transform: uppercase;
     border-radius: 4px;
     transition: background 0.15s, color 0.15s;
+  }
+
+  .os-nav__dropdown-toggle {
+    border: 0;
+    background: transparent;
+    color: var(--ink);
+    padding: 0.35rem 0.85rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border-radius: 4px;
+    font-family: 'Syne', sans-serif;
+    cursor: pointer;
+  }
+
+  .os-nav__dropdown-toggle:hover,
+  .os-nav__dropdown-toggle.active {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .os-nav__dropdown-menu {
+    position: absolute;
+    top: 100%;
+    margin-top: 2px;
+    left: 0;
+    min-width: 270px;
+    max-height: 58vh;
+    overflow-y: auto;
+    background: var(--paper);
+    border: 2px solid var(--ink);
+    border-radius: 8px;
+    box-shadow: 6px 6px 0 var(--ink);
+    padding: 0.35rem;
+    display: none;
+    z-index: 5200;
+  }
+
+  .os-nav__dropdown-menu a {
+    text-transform: none;
+    letter-spacing: 0;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.86rem;
+    padding: 0.5rem 0.65rem;
+    border-radius: 4px;
+  }
+
+  .os-nav__item--open > .os-nav__dropdown-menu {
+    display: block;
+  }
+
+  .os-nav__item--dropdown:hover > .os-nav__dropdown-menu,
+  .os-nav__item--dropdown:focus-within > .os-nav__dropdown-menu {
+    display: block;
   }
 
   .os-nav__links a:hover,
@@ -100,62 +161,105 @@
   }
 
   @media (max-width: 700px) {
-    .os-nav__toggle { display: flex; }
+    .os-nav__inner {
+      height: auto;
+      align-items: stretch;
+      padding: 0.6rem 1rem;
+      gap: 0.5rem;
+    }
 
     .os-nav__links {
-      display: none;
-      position: absolute;
-      top: 64px;
-      left: 0;
-      right: 0;
-      background: var(--paper);
-      border-bottom: 2px solid var(--ink);
+      display: flex;
+      position: static;
+      background: transparent;
+      border-bottom: 0;
       flex-direction: column;
       align-items: stretch;
-      padding: 0.75rem 1.5rem 1rem;
+      padding: 0;
       gap: 0.15rem;
     }
 
-    .os-nav__links.open { display: flex; }
-    .os-nav__links a { padding: 0.6rem 0.5rem; }
+    .os-nav__links a,
+    .os-nav__dropdown-toggle {
+      padding: 0.6rem 0.5rem;
+      width: 100%;
+      text-align: left;
+    }
+
+    .os-nav__dropdown-menu {
+      position: static;
+      min-width: 100%;
+      max-height: none;
+      box-shadow: none;
+      margin-top: 0.35rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .os-nav__item--dropdown:hover > .os-nav__dropdown-menu,
+    .os-nav__item--dropdown:focus-within > .os-nav__dropdown-menu {
+      display: block;
+    }
   }
 </style>
 
 <nav class="os-nav">
   <div class="os-nav__inner">
-    <a class="os-nav__logo" href="/OSWebsite/index.html">
+    <a class="os-nav__logo" href="/index.html">
       <i class="bi bi-hdd-stack-fill"></i>
       ITOS220-T <span>OS</span>
     </a>
-
-    <button class="os-nav__toggle" id="navToggle" aria-label="Toggle navigation">
-      <i class="bi bi-list"></i>
-    </button>
-
     <ul class="os-nav__links" id="navLinks">
-      <li><a href="/OSWebsite/index.html">Home</a></li>
-      <li><a href="/OSWebsite/pages/history.html">History</a></li>
-      <li><a href="/OSWebsite/pages/types.html">Types</a></li>
-      <li><a href="/OSWebsite/pages/functions.html">Functions</a></li>
-      <li><a href="/OSWebsite/pages/about.html">About</a></li>
+      <li class="os-nav__item"><a href="/index.html">Home</a></li>
+
+      <li class="os-nav__item os-nav__item--dropdown">
+        <button class="os-nav__dropdown-toggle" type="button" data-prefix="/laboratory/">Laboratory</button>
+        <div class="os-nav__dropdown-menu">
+          <a href="/laboratory/active_directory.html">Active Directory: Creating Users</a>
+          <a href="/laboratory/dhcp.html">DHCP Role and Joining Workstations in Domain</a>
+          <a href="/laboratory/web_server.html">Application and Web Server</a>
+          <a href="/laboratory/raid.html">RAID Installation</a>
+          <a href="/laboratory/group_policy.html">Group Policy Management</a>
+          <a href="/laboratory/file_server.html">File Server</a>
+          <a href="/laboratory/wds.html">Windows Deployment Services</a>
+        </div>
+      </li>
+
+      <li class="os-nav__item os-nav__item--dropdown">
+        <button class="os-nav__dropdown-toggle" type="button" data-prefix="/windows/">Windows Installations</button>
+        <div class="os-nav__dropdown-menu">
+          <a href="/windows/win95.html">Windows 95</a>
+          <a href="/windows/win98.html">Windows 98</a>
+          <a href="/windows/winNT.html">Windows NT</a>
+          <a href="/windows/win2000.html">Windows 2000</a>
+          <a href="/windows/winME.html">Windows ME</a>
+          <a href="/windows/winXP.html">Windows XP</a>
+          <a href="/windows/winserver2003.html">Windows Server 2003</a>
+          <a href="/windows/winVista.html">Windows Vista</a>
+          <a href="/windows/winserver2008.html">Windows Server 2008</a>
+          <a href="/windows/win7.html">Windows 7</a>
+          <a href="/windows/win8.html">Windows 8</a>
+          <a href="/windows/win10.html">Windows 10</a>
+          <a href="/windows/win11.html">Windows 11</a>
+        </div>
+      </li>
+
+      <li class="os-nav__item os-nav__item--dropdown">
+        <button class="os-nav__dropdown-toggle" type="button" data-prefix="/finals/">Case Study</button>
+        <div class="os-nav__dropdown-menu">
+          <a href="/finals/part1.html">Part 1: Domain Controller</a>
+          <a href="/finals/part2.html">Part 2: Adding Users</a>
+          <a href="/finals/part3.html">Part 3: DHCP Server</a>
+          <a href="/finals/part4.html">Part 4: File Sharing</a>
+          <a href="/finals/part5.html">Part 5: RAID</a>
+          <a href="/finals/part6.html">Part 6: Remote Desktop</a>
+          <a href="/finals/part7.html">Part 7: Web Server</a>
+          <a href="/finals/part8.html">Part 8: Group Policies</a>
+          <a href="/finals/part9.html">Part 9: Windows Deployment</a>
+        </div>
+      </li>
+
+      <li class="os-nav__item"><a href="/about.html">About</a></li>
     </ul>
   </div>
 </nav>
 
-<script>
-  (function () {
-    var toggle = document.getElementById('navToggle');
-    var links = document.getElementById('navLinks');
-    if (toggle && links) {
-      toggle.addEventListener('click', function () {
-        links.classList.toggle('open');
-      });
-    }
-    var cur = window.location.pathname;
-    links && links.querySelectorAll('a').forEach(function (a) {
-      if (a.getAttribute('href') && cur.endsWith(a.getAttribute('href').split('/').pop())) {
-        a.classList.add('active');
-      }
-    });
-  })();
-</script>
