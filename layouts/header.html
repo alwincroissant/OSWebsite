@@ -1,163 +1,128 @@
-<!-- header.html — drop-in replacement, no overlap issues -->
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<!DOCTYPE html>
+<html lang="en">
 
-<style>
-  :root {
-    --ink: #0d0d1a;
-    --paper: #f5f3ee;
-    --accent: #e84a27;
-    --mid: #6b6b7b;
-  }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITOS220-T: Operating Systems</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+            <nav class="navbar navbar-expand-lg navbar-light bg-white border-top border-bottom mb-5">
+                <div class="container-fluid">
+                    <button class="navbar-toggler mx-auto" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active text-uppercase" href="/OSWebsite/index.html">HOME</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-uppercase" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    LABORATORY ACTIVITIES
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="laboratory/active_directory.html" onclick="window.location.href='/OSWebsite/laboratory/active_directory.html'; return false;"><i
+                                                class="bi bi-people-fill me-2"></i>Active Directory: Creating Users</a></li>
+                                    <li><a class="dropdown-item" href="laboratory/dhcp.html" onclick="window.location.href='/OSWebsite/laboratory/dhcp.html'; return false;"><i
+                                                class="bi bi-pc-display me-2"></i>DHCP Role and Joining Workstations in
+                                            Domain</a></li>
+                                    <li><a class="dropdown-item" href="laboratory/web_server.html" onclick="window.location.href='/OSWebsite/laboratory/web_server.html'; return false;"><i
+                                                class="bi bi-browser-edge me-2"></i>Application and Web Server</a></li>
+                                    <li><a class="dropdown-item" href="laboratory/raid.html" onclick="window.location.href='/OSWebsite/laboratory/raid.html'; return false;"><i
+                                                class="bi bi-floppy2 me-2"></i>RAID Installation</a></li>
+                                    <li><a class="dropdown-item" href="laboratory/group_policy.html" onclick="window.location.href='/OSWebsite/laboratory/group_policy.html'; return false;"><i
+                                                class="bi bi-collection-fill me-2"></i>Group Policy Management</a></li>
+                                    <li><a class="dropdown-item" href="laboratory/file_server.html" onclick="window.location.href='/OSWebsite/laboratory/file_server.html'; return false;"><i
+                                                class="bi bi-files me-2"></i>File Server</a></li>
+                                    <li><a class="dropdown-item" href="laboratory/wds.html" onclick="window.location.href='/OSWebsite/laboratory/wds.html'; return false;"><i
+                                                class="bi bi-hdd-network me-2"></i>Windows Deployment Services</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-uppercase" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    WINDOWS INSTALLATION
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="windows/win95.html" onclick="window.location.href='/OSWebsite/windows/win95.html'; return false;"><i class="bi bi-windows me-2"></i>Windows 95</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="windows/win98.html" onclick="window.location.href='/OSWebsite/windows/win98.html'; return false;"><i class="bi bi-windows me-2"></i>Windows 98</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="windows/winNT.html" onclick="window.location.href='/OSWebsite/windows/winNT.html'; return false;"><i class="bi bi-windows me-2"></i>Windows NT</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="windows/win2000.html" onclick="window.location.href='/OSWebsite/windows/win2000.html'; return false;"><i class="bi bi-windows me-2"></i>Windows 2000</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="windows/winME.html" onclick="window.location.href='/OSWebsite/windows/winME.html'; return false;"><i class="bi bi-windows me-2"></i>Windows ME</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="windows/winXP.html" onclick="window.location.href='/OSWebsite/windows/winXP.html'; return false;"><i class="bi bi-windows me-2"></i>Windows XP</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="windows/winserver2003.html" onclick="window.location.href='/OSWebsite/windows/winserver2003.html'; return false;"><i class="bi bi-server me-2"></i>Windows Server
+                                            2003</a></li>
+                                    <li><a class="dropdown-item" href="windows/winVista.html" onclick="window.location.href='/OSWebsite/windows/winVista.html'; return false;"><i class="bi bi-windows me-2"></i>Windows
+                                            Vista</a></li>
+                                    <li><a class="dropdown-item" href="windows/winserver2008.html" onclick="window.location.href='/OSWebsite/windows/winserver2008.html'; return false;"><i class="bi bi-server me-2"></i>Windows Server
+                                            2008</a></li>
+                                    <li><a class="dropdown-item" href="windows/win7.html" onclick="window.location.href='/OSWebsite/windows/win7.html'; return false;"><i class="bi bi-windows me-2"></i>Windows 7</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="windows/win8.html" onclick="window.location.href='/OSWebsite/windows/win8.html'; return false;"><i class="bi bi-windows me-2"></i>Windows 8</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="windows/win10.html" onclick="window.location.href='/OSWebsite/windows/win10.html'; return false;"><i class="bi bi-windows me-2"></i>Windows 10</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="windows/win11.html" onclick="window.location.href='/OSWebsite/windows/win11.html'; return false;"><i class="bi bi-windows me-2"></i>Windows 11</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-uppercase" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    FINALS: TUP-TAGUIG DOMAIN
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="finals/part1.html" onclick="window.location.href='/OSWebsite/finals/part1.html'; return false;"><i class="bi bi-globe me-2"></i>Part 1: Domain
+                                            Controller</a></li>
+                                    <li><a class="dropdown-item" href="finals/part2.html" onclick="window.location.href='/OSWebsite/finals/part2.html'; return false;"><i class="bi bi-people-fill me-2"></i>Part 2:
+                                            Adding Users</a></li>
+                                    <li><a class="dropdown-item" href="finals/part3.html" onclick="window.location.href='/OSWebsite/finals/part3.html'; return false;"><i class="bi bi-server me-2"></i>Part 3: DHCP
+                                            Server</a></li>
+                                    <li><a class="dropdown-item" href="finals/part4.html" onclick="window.location.href='/OSWebsite/finals/part4.html'; return false;"><i class="bi bi-files me-2"></i>Part 4: File
+                                            Sharing</a></li>
+                                    <li><a class="dropdown-item" href="finals/part5.html" onclick="window.location.href='/OSWebsite/finals/part5.html'; return false;"><i class="bi bi-floppy2 me-2"></i>Part 5: RAID</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="finals/part6.html" onclick="window.location.href='/OSWebsite/finals/part6.html'; return false;"><i class="bi bi-window-stack me-2"></i>Part 6:
+                                            Remote Desktop</a></li>
+                                    <li><a class="dropdown-item" href="finals/part7.html" onclick="window.location.href='/OSWebsite/finals/part7.html'; return false;"><i class="bi bi-globe2 me-2"></i>Part 7: Web
+                                            Server</a></li>
+                                    <li><a class="dropdown-item" href="finals/part8.html" onclick="window.location.href='/OSWebsite/finals/part8.html'; return false;"><i class="bi bi-person-gear me-2"></i>Part 8:
+                                            Group Policies</a></li>
+                                    <li><a class="dropdown-item" href="finals/part9.html" onclick="window.location.href='/OSWebsite/finals/part9.html'; return false;"><i class="bi bi-window-stack me-2"></i>Part 9:
+                                            Windows Deployment</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-uppercase" href="/OSWebsite/about.html">ABOUT</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  .os-nav {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: var(--paper);
-    border-bottom: 2px solid var(--ink);
-    font-family: 'Syne', sans-serif;
-  }
+<body>
+    <div class="container mt-4">
+        <header class="text-center mb-5">
+                </div>
+            </div>
+        </nav>
+    </div>
+</body>
 
-  .os-nav__inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 64px;
-    gap: 2rem;
-  }
-
-  .os-nav__logo {
-    font-size: 1rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--ink);
-    text-decoration: none;
-    white-space: nowrap;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .os-nav__logo span {
-    display: inline-block;
-    background: var(--ink);
-    color: var(--paper);
-    padding: 2px 6px;
-    border-radius: 3px;
-    font-size: 0.7rem;
-  }
-
-  .os-nav__links {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-  }
-
-  .os-nav__links a {
-    display: block;
-    padding: 0.35rem 0.85rem;
-    color: var(--ink);
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    border-radius: 4px;
-    transition: background 0.15s, color 0.15s;
-  }
-
-  .os-nav__links a:hover,
-  .os-nav__links a.active {
-    background: var(--ink);
-    color: var(--paper);
-  }
-
-  .os-nav__links a.active {
-    background: var(--accent);
-  }
-
-  /* hamburger */
-  .os-nav__toggle {
-    display: none;
-    background: none;
-    border: 2px solid var(--ink);
-    border-radius: 4px;
-    width: 38px;
-    height: 38px;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 1.2rem;
-    color: var(--ink);
-    flex-shrink: 0;
-  }
-
-  @media (max-width: 700px) {
-    .os-nav__toggle { display: flex; }
-
-    .os-nav__links {
-      display: none;
-      position: absolute;
-      top: 64px;
-      left: 0;
-      right: 0;
-      background: var(--paper);
-      border-bottom: 2px solid var(--ink);
-      flex-direction: column;
-      align-items: stretch;
-      padding: 0.75rem 1.5rem 1rem;
-      gap: 0.15rem;
-    }
-
-    .os-nav__links.open { display: flex; }
-    .os-nav__links a { padding: 0.6rem 0.5rem; }
-  }
-</style>
-
-<nav class="os-nav">
-  <div class="os-nav__inner">
-    <a class="os-nav__logo" href="/OSWebsite/index.html">
-      <i class="bi bi-hdd-stack-fill"></i>
-      ITOS220‑T <span>OS</span>
-    </a>
-
-    <button class="os-nav__toggle" id="navToggle" aria-label="Toggle navigation">
-      <i class="bi bi-list"></i>
-    </button>
-
-    <ul class="os-nav__links" id="navLinks">
-      <li><a href="/OSWebsite/index.html">Home</a></li>
-      <li><a href="/OSWebsite/laboratory/active_directory.html">Laboratory</a></li>
-      <li><a href="/OSWebsite/windows/win11.html">Windows</a></li>
-      <li><a href="/OSWebsite/finals/part1.html">Finals</a></li>
-      <li><a href="/OSWebsite/about.html">About</a></li>
-    </ul>
-  </div>
-</nav>
-
-<script>
-  (function () {
-    var toggle = document.getElementById('navToggle');
-    var links  = document.getElementById('navLinks');
-    if (toggle && links) {
-      toggle.addEventListener('click', function () {
-        links.classList.toggle('open');
-      });
-    }
-    // highlight active link
-    var cur = window.location.pathname;
-    links && links.querySelectorAll('a').forEach(function (a) {
-      if (a.getAttribute('href') && cur.endsWith(a.getAttribute('href').split('/').pop())) {
-        a.classList.add('active');
-      }
-    });
-  })();
-</script>
+</html>
