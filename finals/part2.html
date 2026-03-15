@@ -17,28 +17,71 @@
     <div id="header"></div>
 
     <script>
-        fetch('/OSWebsite/layouts/header.html')
+        fetch((window.location.pathname.includes('/OSWebsite/') ? '/OSWebsite/' : '/') + 'layouts/header.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('header').innerHTML = data;
             });
     </script>
 
-    <main class="mx-auto" style="max-width: 800px;">
-        <div class="text-center mb-5">
-            <h2 class="display-6 fw-bold mb-4">PART 2: ADDING USERS</h2>
-            <p class="lead text-muted" style="text-align: justify;">
-                In Windows Server 2008, adding users is a straightforward process performed through the Server Manager or Active Directory Users and Computers (ADUC) console for domain environments. In this video, I used the bulk adding of users.<br>
-                <br>
-                To access the code, I used in adding users in bulk method kindly access this link: https://ggle.in/bulkusers <br>
-            </p>
+    <main class="mx-auto" style="max-width: 900px;">
+        <h2 class="display-6 fw-bold mb-3">PART 2: ADD DOMAIN USERS</h2>
+        <p class="mb-3">
+            <strong>Reference Video:</strong>
+            <a href="https://youtu.be/cZs77Q7alvw" target="_blank" rel="noopener noreferrer">https://youtu.be/cZs77Q7alvw</a>
+        </p>
+        <div class="ratio ratio-16x9 mb-4">
+            <iframe src="https://www.youtube.com/embed/cZs77Q7alvw" title="Part 2 Add Domain Users" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
+        <p class="lead text-muted" style="text-align: justify;">
+            Create domain users and Organizational Units for all required academic and administrative groups.
+            Use real student and staff names when creating domain accounts.
+        </p>
+
+        <h5 class="mt-4">Academic Departments and Sections</h5>
+        <ol>
+            <li>Basic Art and Sciences Department: BTVTE Electrical, BTVTE Electronics, BTVTE Computer Hardware, BTVTE Computer Software</li>
+            <li>Electrical and Allied Department: Information Technology, Electrical Engineering, Electronics Engineering, Instrumentation and Control Technology, BET Mechatronics</li>
+            <li>Mechanical and Allied Department: Mechanical Engineering Technology, RAC Engineering Technology, Non Destructive Engineering Technology, Electromechanical Engineering Technology, Automotive Engineering Technology, BET ElectroMechanical</li>
+            <li>Civil and Allied Department: Civil Engineering, Civil Engineering Technology, Environmental Science, Chemical Engineering Technology</li>
+        </ol>
+
+        <h5 class="mt-4">Administrative Offices</h5>
+        <ul>
+            <li>Registrar's Office</li>
+            <li>Director's Office</li>
+            <li>Research and Extension</li>
+            <li>Human Resource and Management Office</li>
+            <li>Finance Office</li>
+            <li>Supply and Procurement</li>
+            <li>Records Office</li>
+            <li>Library Services</li>
+        </ul>
+
+        <h5 class="mt-4">Directory and Security Requirements</h5>
+        <ul>
+            <li>Create an Organizational Unit for each technology section and each office.</li>
+            <li>Users can only log on to assigned workstations: XP Class A network and Windows 7 Class B network.</li>
+            <li>Users must change passwords every 30 days.</li>
+            <li>Academic users: allowed logon time is 7:30 AM to 8:45 AM.</li>
+            <li>Administrative users: allowed logon time is 7:00 AM to 7:00 PM.</li>
+        </ul>
+
+        <h5 class="mt-4">PowerShell Script Execution</h5>
+        <ol>
+            <li>Copy Create-DomainUsers.ps1 to the Desktop on the Server VM.</li>
+            <li>Open PowerShell as Administrator.</li>
+            <li>Run: Set-ExecutionPolicy RemoteSigned</li>
+            <li>Confirm with Y, then press Enter.</li>
+            <li>Run: cd C:\Users\Administrator\Desktop</li>
+            <li>Run: .\Create-DomainUsers.ps1</li>
+        </ol>
     </main>
 
     <div id="footer"></div>
 
     <script>
-        fetch('/OSWebsite/layouts/footer.html')
+        fetch((window.location.pathname.includes('/OSWebsite/') ? '/OSWebsite/' : '/') + 'layouts/footer.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer').innerHTML = data;

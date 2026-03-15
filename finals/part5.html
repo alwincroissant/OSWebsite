@@ -17,26 +17,39 @@
     <div id="header"></div>
 
     <script>
-        fetch('/OSWebsite/layouts/header.html')
+        fetch((window.location.pathname.includes('/OSWebsite/') ? '/OSWebsite/' : '/') + 'layouts/header.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('header').innerHTML = data;
             });
     </script>
 
-    <main class="mx-auto" style="max-width: 800px;">
-        <div class="text-center mb-5">
-            <h2 class="display-6 fw-bold mb-4">PART 5: RAID</h2>
-            <p class="lead text-muted" style="text-align: justify;">
-                RAID (Redundant Array of Independent Disks) is a storage technology that combines multiple physical disks into a single logical unit to improve performance, redundancy, or both. Windows Server 2008 supports software-based RAID (managed by the OS) and works with hardware RAID (managed by a dedicated controller). <br>
-            </p>
+    <main class="mx-auto" style="max-width: 900px;">
+        <h2 class="display-6 fw-bold mb-3">PART 5: CREATE RAID</h2>
+        <p class="mb-3">
+            <strong>Reference Video:</strong>
+            <a href="https://youtu.be/IAybl3qPDzU" target="_blank" rel="noopener noreferrer">https://youtu.be/IAybl3qPDzU</a>
+        </p>
+        <div class="ratio ratio-16x9 mb-4">
+            <iframe src="https://www.youtube.com/embed/IAybl3qPDzU" title="Part 5 Create RAID" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
+        <p class="lead text-muted" style="text-align: justify;">
+            Demonstrate disk management and RAID creation in Windows Server 2008 using the required RAID configurations.
+        </p>
+
+        <h5 class="mt-4">Required RAID Configurations</h5>
+        <ul>
+            <li>Striped volume (RAID 0 equivalent).</li>
+            <li>Mirrored volume (RAID 1).</li>
+            <li>Spanned volume.</li>
+            <li>RAID-5 volume.</li>
+        </ul>
     </main>
 
     <div id="footer"></div>
 
     <script>
-        fetch('/OSWebsite/layouts/footer.html')
+        fetch((window.location.pathname.includes('/OSWebsite/') ? '/OSWebsite/' : '/') + 'layouts/footer.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer').innerHTML = data;

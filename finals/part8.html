@@ -17,26 +17,63 @@
     <div id="header"></div>
 
     <script>
-        fetch('/OSWebsite/layouts/header.html')
+        fetch((window.location.pathname.includes('/OSWebsite/') ? '/OSWebsite/' : '/') + 'layouts/header.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('header').innerHTML = data;
             });
     </script>
 
-    <main class="mx-auto" style="max-width: 800px;">
-        <div class="text-center mb-5">
-            <h2 class="display-6 fw-bold mb-4">PART 8: GROUP POLICIES</h2>
-            <p class="lead text-muted" style="text-align: justify;">
-                Group Policy is a powerful feature in Windows Server 2008 that allows administrators to centrally manage user and computer settings across a domain. It enforces security configurations, deploys software, and controls system and application behaviors through Group Policy Objects (GPOs).<br>
-            </p>
+    <main class="mx-auto" style="max-width: 900px;">
+        <h2 class="display-6 fw-bold mb-3">PART 8: GROUP POLICIES</h2>
+        <p class="mb-3">
+            <strong>Reference Playlist:</strong>
+            <a href="https://www.youtube.com/playlist?list=PLN0M7olJoF6uckcDC6nSdP4-UXh8Xzm0T" target="_blank" rel="noopener noreferrer">https://www.youtube.com/playlist?list=PLN0M7olJoF6uckcDC6nSdP4-UXh8Xzm0T</a>
+        </p>
+        <div class="ratio ratio-16x9 mb-4">
+            <iframe src="https://www.youtube.com/embed/videoseries?list=PLN0M7olJoF6uckcDC6nSdP4-UXh8Xzm0T" title="Part 8 Group Policies Playlist" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
+        <p class="lead text-muted" style="text-align: justify;">
+            Apply and enforce Group Policy Objects for user restrictions, security settings, password policy, account lockout, and interface controls.
+        </p>
+
+        <h5 class="mt-4">Group Policy Requirements</h5>
+        <ul>
+            <li>Each department should have its own desktop wallpaper.</li>
+            <li>Enable: Prohibit access to Control Panel and PC settings.</li>
+            <li>Enable: Network security - do not store LAN Manager hash value on next password change.</li>
+            <li>Enable: Prevent access to the command prompt.</li>
+            <li>Enable: No auto-restart with logged on users for scheduled automatic updates installations.</li>
+            <li>Enable: All removable storage classes - deny all access.</li>
+            <li>Enable: Prohibit user install.</li>
+            <li>Disable: Accounts - Guest account status.</li>
+            <li>Minimum password length: at least 12 characters.</li>
+            <li>Maximum password age: 42 days.</li>
+            <li>Audit directory service access and directory service changes. GPO settings should only be accessed by IT admins.</li>
+            <li>Account lockout duration: 30 minutes.</li>
+            <li>Account lockout threshold: 3 invalid logon attempts.</li>
+            <li>Reset account lockout counter after: 30 minutes.</li>
+            <li>Remove links and access to Windows Update: user enabled, admin disabled.</li>
+            <li>Remove Network Connections from Start Menu: user enabled, admin disabled.</li>
+            <li>Remove Help Menu from Start Menu: user enabled, admin disabled.</li>
+            <li>Remove Run Menu from Start Menu: user enabled, admin disabled.</li>
+            <li>Remove My Pictures icon from Start Menu: user enabled, admin disabled.</li>
+            <li>Remove My Music icon from Start Menu: user enabled, admin disabled.</li>
+            <li>Remove My Network Places icon from Start Menu: user enabled, admin disabled.</li>
+            <li>Add Logoff on Start Menu: enabled.</li>
+            <li>Remove Task Manager from Ctrl+Alt+Del: user enabled, admin disabled.</li>
+            <li>Internet Explorer browser title text: set to domain name.</li>
+            <li>Prohibit access to LAN connection properties: user enabled, admin disabled.</li>
+            <li>Prevent access to command prompt: user enabled, admin disabled.</li>
+            <li>Prevent access to registry editing tools: user enabled, admin disabled.</li>
+            <li>Prohibit access to Control Panel: user enabled, admin disabled.</li>
+        </ul>
     </main>
 
     <div id="footer"></div>
 
     <script>
-        fetch('/OSWebsite/layouts/footer.html')
+        fetch((window.location.pathname.includes('/OSWebsite/') ? '/OSWebsite/' : '/') + 'layouts/footer.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer').innerHTML = data;

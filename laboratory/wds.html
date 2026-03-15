@@ -17,7 +17,7 @@
     <div id="header"></div>
 
     <script>
-        fetch('/OSWebsite/layouts/header.html')
+        fetch((window.location.pathname.includes('/OSWebsite/') ? '/OSWebsite/' : '/') + 'layouts/header.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('header').innerHTML = data;
@@ -46,7 +46,7 @@
     <div id="footer"></div>
 
     <script>
-        fetch('/OSWebsite/layouts/footer.html')
+        fetch((window.location.pathname.includes('/OSWebsite/') ? '/OSWebsite/' : '/') + 'layouts/footer.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer').innerHTML = data;
