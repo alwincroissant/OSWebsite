@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITOS220-T: Operating Systems</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/OSWebsite/layouts/style.css">
+</head>
+
+<body>
+    <div id="header"></div>
+
+    <script>
+        fetch('/OSWebsite/layouts/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+            });
+    </script>
+
+    <main class="mx-auto" style="max-width: 800px;">
+        <div class="text-center mb-5">
+            <h2 class="display-6 fw-bold mb-4">File Server</h2>
+            <p class="lead text-muted" style="justify-content: center; text-align: justify;">
+                A file server is a centralized storage system within a network that allows multiple users to store,
+                access, and manage files and data. It provides a shared location for documents, media, and other
+                resources, enabling collaboration and efficient data management. File servers often include features
+                like access control, user permissions, and backup capabilities to ensure data security and availability.
+                They can be implemented using dedicated hardware or software solutions and are commonly used in
+                businesses, schools, and organizations to streamline file sharing, reduce redundancy, and maintain
+                centralized control over critical data.<br>
+                <br>
+                Instructions<br>
+                Add roles: File Services, and perform the following:<br>
+                <br>
+                1. Create a "Public" folder<br>
+                Permissions: Read/Write<br>
+                Users: All<br>
+                Files: All files format except *.exe, *.com, *.vb, *.vbs<br>
+                <br>
+                2. Folder: VB.Net<br>
+                Permissions: Read/Write<br>
+                Users: All<br>
+                Files: *.zip, *.rar<br>
+                <br>
+                3. Folder: C_Programs<br>
+                Permissions: Read/Write<br>
+                Users: All<br>
+                Files: *.c, *.cpp<br>
+                <br>
+                4. Folder: Surname_Section<br>
+                Permissions: Full Control<br>
+                Users: Domain User<br>
+                Files: *.c, *.cpp, *.pdf, *.rar,*.docx, *.ppt,*.dwg<br>
+                <br>
+                5. Folder: PHOTO_Male & PHOTO_FEMALE<br>
+                Permissions: Read/Write<br>
+                Users: Based on Users Gender<br>
+                Files: *.jpg, *.gif, *.png<br>
+            </p>
+        </div>
+
+        <div class="ratio ratio-16x9 mt-5 mb-5">
+            <iframe src="https://www.youtube.com/embed/eGlx1s6RWLM" title="File Server" allowfullscreen></iframe>
+        </div>
+    </main>
+
+    <div id="footer"></div>
+
+    <script>
+        fetch('/OSWebsite/layouts/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            });
+    </script>
+    </div>
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

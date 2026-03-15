@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITOS220-T: Operating Systems</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/OSWebsite/layouts/style.css">
+</head>
+
+<body>
+    <div id="header"></div>
+
+    <script>
+        fetch('/OSWebsite/layouts/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+            });
+    </script>
+
+    <main class="mx-auto" style="max-width: 800px;">
+        <div class="text-center mb-5">
+            <h2 class="display-6 fw-bold mb-4">Group Policy Management</h2>
+            <p class="lead text-muted" style="justify-content: center; text-align: justify;">
+                Group Policy Management is a centralized feature in Microsoft Windows that allows administrators to
+                manage and enforce settings for users and computers within an Active Directory domain using Group Policy
+                Objects (GPOs). It enables control over security settings (e.g., password policies, user rights),
+                software deployment (e.g., automated installations), system configurations (e.g., desktop and network
+                settings), and compliance auditing, ensuring consistency, security, and efficiency across the network.
+                By applying GPOs, administrators can streamline policy enforcement, reduce manual configuration, and
+                maintain organizational standards in a networked environment.<br>
+                ​<br>
+                Instructions<br>
+                Perform the following rules in Group Policy:<br>
+                - Remove links and access to Windows Update: User(Enable), Admin(Disable)<br>
+                - Remove Network Connections from the Start Menu: User(Enable), Admin(Disable)<br>
+                - Remove Help menu from the Start Menu: User(Enable), Admin(Disable)<br>
+                - Remove Run menu from the Start Menu: User(Enable), Admin(Disable)<br>
+                - Remove My Pictures icon menu from the Start Menu: User(Enable), Admin(Disable)<br>
+                - Remove My Music icon menu from the Start Menu: User(Enable), Admin(Disable)<br>
+                - Remove My Network Places icon menu from the Start Menu: User(Enable), Admin(Disable)<br>
+                - Add Logoff on the Start Menu: Enable<br>
+                - Remove Task Manager from CTRL+ALT+DEL: User(Enable), Admin(Disable)<br>
+                - Internet Explorer Browser Title: Title Bar Text: <domain name><br>
+                    - Prohibit access to properties of components of a LAN Connections: User(Enable), Admin(Disable)<br>
+                    - Prevent access to the Command Prompt: User(Enable), Admin(Disable)<br>
+                    - Prevent access to registry editing tools: User(Enable), Admin(Disable)<br>
+                    - Prohibit access to the Control Panel: User(Enable), Admin(Disable)<br>
+            </p>
+        </div>
+
+        <div class="ratio ratio-16x9 mt-5 mb-5">
+            <iframe src="https://www.youtube.com/embed/DgERcK3UDCQ" title="Group Policy Management"
+                allowfullscreen></iframe>
+        </div>
+    </main>
+
+    <div id="footer"></div>
+
+    <script>
+        fetch('/OSWebsite/layouts/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            });
+    </script>
+
+    </div>
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

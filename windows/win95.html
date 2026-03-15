@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITOS220-T: Operating Systems</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/OSWebsite/layouts/style.css">
+</head>
+
+<body>
+    <div id="header"></div>
+
+    <script>
+        fetch('/OSWebsite/layouts/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+            });
+    </script>
+
+    <main class="mx-auto" style="max-width: 800px;">
+        <div class="text-center mb-5">
+            <h2 class="display-6 fw-bold mb-4">Windows 95 Installation</h2>
+            <p class="lead text-muted" style="justify-content: center; text-align: justify;">
+                Floppy Disc Link: https://winworldpc.com/download/db57f85a-f039-11e7-a562-fa163e9022f0<br>
+                <br>
+                Windows 95 ISO: https://winworldpc.com/download/df61214c-cca9-11e7-a73f-fa163e9022f0<br>
+                <br>
+                If an error occurs after Windows 95 Installation, refer to this link below and download the FIX95CPU_V3_FINAL.ZIP and use the ISO file inside.<br>
+                https://msfn.org/board/topic/141402-windows-95-21ghz-cpu-limit-broken/<br>
+                <br>
+                WIN95 PROD KEY: 12095 0004226 12233<br>
+            </p>
+        </div>
+
+        <div class="ratio ratio-16x9 mt-5 mb-5">
+            <iframe src="https://www.youtube.com/embed/j_Z_ywocSkI" title="Windows 95 Installation"    
+                allowfullscreen></iframe>
+        </div>
+    </main>
+
+    <div id="footer"></div>
+
+    <script>
+        fetch('/OSWebsite/layouts/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            });
+    </script>
+
+    </div>
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

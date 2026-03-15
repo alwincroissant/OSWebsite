@@ -1,0 +1,203 @@
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --text-color: #333;
+    --text-muted: #6c757d;
+    --light-bg: #f8f9fa;
+    --accent-color: #e67e22;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--light-bg);
+    color: var(--text-color);
+}
+
+.main-title {
+    color: var(--primary-color);
+}
+
+.tracking-wider {
+    letter-spacing: 2px;
+}
+
+/* Navigation customization */
+.navbar {
+    padding: 1rem 0;
+}
+
+.nav-link {
+    font-size: 0.9rem;
+    color: var(--text-muted) !important;
+    letter-spacing: 1px;
+    padding: 0.5rem 1rem !important;
+    margin: 0 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-color) !important;
+}
+
+/* Dropdown customization */
+.dropdown-menu {
+    border: none;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.1);
+    margin-top: 0.5rem;
+    padding: 0.5rem 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.dropdown-item {
+    padding: 0.75rem 1.5rem;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(52, 152, 219, 0.1);
+    color: var(--secondary-color);
+}
+
+.dropdown-item i {
+    color: var(--secondary-color);
+}
+
+/* Main content customization */
+h2.display-6 {
+    color: var(--primary-color);
+}
+
+.lead {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* Card customization */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+}
+
+/* YouTube video styling */
+.ratio iframe {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background-color: white;
+        padding: 1rem;
+        border-radius: 8px;
+        margin-top: 1rem;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .nav-link {
+        padding: 0.75rem 1rem !important;
+        margin: 0 !important;
+        text-align: left;
+    }
+    
+    .dropdown-menu {
+        box-shadow: none;
+        border: none;
+        background-color: rgba(248, 249, 250, 0.9);
+        padding-left: 1rem;
+    }
+    
+    .dropdown-item {
+        padding: 0.5rem 1rem;
+    }
+    
+    .navbar-toggler {
+        border: 2px solid var(--secondary-color);
+        padding: 0.5rem 0.75rem;
+    }
+    
+    .navbar-toggler:focus {
+        box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.3);
+    }
+}
+
+@media (max-width: 768px) {
+    .display-4 {
+        font-size: 2rem;
+    }
+    
+    .display-6 {
+        font-size: 1.5rem;
+    }
+    
+    .dropdown-menu {
+        max-height: 50vh;
+        overflow-y: auto;
+    }
+}
+
+/* Add subtle animations */
+.card-body {
+    transition: all 0.3s ease;
+}
+
+.card:hover .card-body {
+    transform: scale(1.02);
+}
+
+/* Add decorative elements */
+header::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--accent-color);
+    margin: 1rem auto;
+}
+
+/* Style active dropdown */
+.dropdown-toggle[aria-expanded="true"] {
+    color: var(--primary-color) !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+/* Smooth scrolling for dropdown menus on mobile */
+.dropdown-menu::-webkit-scrollbar {
+    width: 6px;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 3px;
+}

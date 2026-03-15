@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITOS220-T: Operating Systems</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/OSWebsite/layouts/style.css">
+</head>
+
+<body>
+    <div id="header"></div>
+
+    <script>
+        fetch('/OSWebsite/layouts/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+            });
+    </script>
+
+    <main class="mx-auto" style="max-width: 800px;">
+        <div class="text-center mb-5">
+            <h2 class="display-6 fw-bold mb-4">OPERATING SYSTEM</h2>
+            <p class="lead text-muted" style="justify-content: center; text-align: justify;">
+                An operating system (OS) is the core software that manages a computer's hardware and software resources,
+                enabling users to interact with the machine. It handles tasks like running applications, managing
+                memory, organizing files, controlling devices, and ensuring security. OS types include desktop systems
+                (Windows, macOS), mobile systems (Android, iOS), servers (Linux), and embedded systems. Without an OS,
+                computers couldn't function or run programs.
+            </p>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="bi bi-cpu feature-icon"></i>
+                        <h5 class="card-title mt-3">Resource Management</h5>
+                        <p class="card-text text-muted" style="justify-content: center; text-align: justify;">
+                            Efficiently allocates and manages hardware resources like CPU, memory, and storage for
+                            smooth system operation..</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="bi bi-person-workspace feature-icon"></i>
+                        <h5 class="card-title mt-3">User Interface</h5>
+                        <p class="card-text text-muted" style="justify-content: center; text-align: justify;">
+                            It provides a graphical or command-based interface, allowing users to interact with the
+                            computer easily</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="bi bi-windows feature-icon"></i>
+                        <h5 class="card-title mt-3">Software Execution</h5>
+                        <p class="card-text text-muted" style="justify-content: center; text-align: justify;">
+                            Enables applications to run by handling processes, multitasking, and ensuring compatibility
+                            between software and hardware</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ratio ratio-16x9 mt-5 mb-5">
+            <iframe src="https://www.youtube.com/embed/GjNp0bBrjmU" title="Operating Systems YouTube video"
+                allowfullscreen></iframe>
+        </div>
+    </main>
+
+    <div id="footer"></div>
+
+    <script>
+        fetch('/OSWebsite/layouts/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            });
+    </script>
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
