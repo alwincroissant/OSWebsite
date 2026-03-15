@@ -62,6 +62,17 @@
     gap: 0.25rem;
   }
 
+  /* Guard nav UI from page-level li::before bullet styles. */
+  .os-nav__links li::before,
+  .os-nav__links li::after,
+  .os-nav__links a::before,
+  .os-nav__links a::after,
+  .os-nav__links button::before,
+  .os-nav__links button::after {
+    content: none !important;
+    display: none !important;
+  }
+
   .os-nav__item {
     position: relative;
   }
